@@ -522,7 +522,7 @@ async function experimentInit() {
   button = new visual.ButtonStim({
     win: psychoJS.window,
     name: 'button',
-    text: 'Click here to continue.',
+    text: 'Continue',
     fillColor: 'darkgrey',
     borderColor: null,
     color: 'white',
@@ -1538,6 +1538,11 @@ function clockRoutineEachFrame() {
       clock_displayText.frameNStart = frameN;  // exact frame index
       
       clock_displayText.setAutoDraw(true);
+    }
+    
+    frameRemains = 0.0 + 10.0 - psychoJS.window.monitorFramePeriod * 0.75;  // most of one frame period left
+    if (clock_displayText.status === PsychoJS.Status.STARTED && t >= frameRemains) {
+      clock_displayText.setAutoDraw(false);
     }
     
     
@@ -6673,7 +6678,7 @@ function end_screenRoutineBegin(snapshot) {
             Accept: '*/*',
         },
         body: JSON.stringify({
-            experimentID: 'SezW5V6EZC6Z', // ⭑ UPDATE WITH YOUR DATAPIPE EXPERIMENT ID ⭑
+            experimentID: '9zRsxH0Fcj22', // ⭑ UPDATE WITH YOUR DATAPIPE EXPERIMENT ID ⭑
             filename: filename,
             data: csvData,
         }),
