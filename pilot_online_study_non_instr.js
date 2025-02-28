@@ -19,11 +19,11 @@ let expInfo = {
 
 // Start code blocks for 'Before Experiment'
 // Silence the console
-//console.log = function () {};
-//console.warn = function () {};
-//console.error = function () {};
-//console.info = function () {};
-//console.debug = function () {};
+console.log = function () {};
+console.warn = function () {};
+console.error = function () {};
+console.info = function () {};
+console.debug = function () {};
 
 ////
 
@@ -320,12 +320,12 @@ async function experimentInit() {
     
         const participantN = data.participantN;
         const paddedParticipantN = participantN.toString().padStart(3, '0');
-        console.log(`Participant Number: ${paddedParticipantN}`);
+  //      console.log(`Participant Number: ${paddedParticipantN}`);
     
         expInfo['participant'] = paddedParticipantN;
         let data_filename = `data/${expInfo['participant']}_${expName}_${expInfo['date']}`;
         psychoJS.experiment.dataFileName = data_filename;
-        console.log(`Data filename set to: ${data_filename}`);
+  //      console.log(`Data filename set to: ${data_filename}`);
         
         // Define calibration file and push to resources
         const calibration_list = [
