@@ -307,11 +307,12 @@ async function experimentInit() {
   async function fetchParticipantData() {
       try {
         // Step 1: Fetch participant number first
-        const response = await fetch('https://script.google.com/macros/s/AKfycbz3isfuvcsbTOF1BLRsIAXaVextWf5CsaYE4vMQXjWFJ7KI93Rf5W8c4ULcBNrZhu-lZA/exec');
+        const response = await fetch('https://script.google.com/macros/s/AKfycbyNY8_DFHbiducLUl2Fsu5u1Vlkpr5XcUwOfog8A9laZXKFZyO91ixV8uWkzidVWzWi2w/exec');
         const data = await response.json();
     
         const participantN = data.participantN;
-        const paddedParticipantN = participantN.toString().padStart(3, '0');
+        paddedParticipantN = participantN.toString().padStart(3, '0');
+  //      const paddedParticipantN = '000'
   //      console.log(`Participant Number: ${paddedParticipantN}`);
     
         expInfo['participant'] = paddedParticipantN;
