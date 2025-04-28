@@ -1,18 +1,10 @@
-﻿/************************************* 
- * Pilot_Online_Study_Non_Instr *
- *************************************/
-
-import { core, data, sound, util, visual, hardware } from './lib/psychojs-2024.1.5.js';
-const { PsychoJS } = core;
-const { TrialHandler, MultiStairHandler } = data;
-const { Scheduler } = util;
-//some handy aliases as in the psychopy scripts;
-const { abs, sin, cos, PI: pi, sqrt } = Math;
-const { round } = util;
+﻿/***************************** 
+ * Expt_1_Odd_Harmonics *
+ *****************************/
 
 
 // store info about the experiment session:
-let expName = 'pilot_online_study_non_instr';  // from the Builder filename that created this script
+let expName = 'expt_1_odd_harmonics';  // from the Builder filename that created this script
 let expInfo = {
     '': '',
 };
@@ -207,6 +199,7 @@ var correct_file;
 var huggins_trial_counter;
 var sound_huggins;
 var text_headphoneCheck;
+var text_clock;
 var headphone_choiceClock;
 var button_huggins_1;
 var button_huggins_2;
@@ -687,6 +680,18 @@ async function experimentInit() {
     languageStyle: 'LTR',
     color: new util.Color('white'),  opacity: undefined,
     depth: -2.0 
+  });
+  
+  text_clock = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'text_clock',
+    text: '',
+    font: 'Arial',
+    units: undefined, 
+    pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0.0,
+    languageStyle: 'LTR',
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -3.0 
   });
   
   // Initialize components for Routine "headphone_choice"
@@ -1413,9 +1418,10 @@ function init_paramsRoutineBegin(snapshot) {
     // keep track of which components have finished
     init_paramsComponents = [];
     
-    for (const thisComponent of init_paramsComponents)
+    init_paramsComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -1439,11 +1445,11 @@ function init_paramsRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of init_paramsComponents)
+    init_paramsComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine) {
@@ -1458,11 +1464,11 @@ function init_paramsRoutineEachFrame() {
 function init_paramsRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'init_params' ---
-    for (const thisComponent of init_paramsComponents) {
+    init_paramsComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     psychoJS.experiment.addData('init_params.stopped', globalClock.getTime());
     // the Routine "init_params" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
@@ -1496,9 +1502,10 @@ function clockRoutineBegin(snapshot) {
     clockComponents.push(clock_displayText);
     clockComponents.push(button);
     
-    for (const thisComponent of clockComponents)
+    clockComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -1596,11 +1603,11 @@ function clockRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of clockComponents)
+    clockComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine) {
@@ -1615,11 +1622,11 @@ function clockRoutineEachFrame() {
 function clockRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'clock' ---
-    for (const thisComponent of clockComponents) {
+    clockComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     psychoJS.experiment.addData('clock.stopped', globalClock.getTime());
     psychoJS.experiment.addData('button.numClicks', button.numClicks);
     psychoJS.experiment.addData('button.timesOn', button.timesOn);
@@ -1687,9 +1694,10 @@ function headphone_calibrateRoutineBegin(snapshot) {
     headphone_calibrateComponents.push(sound_headphoneCalibrate);
     headphone_calibrateComponents.push(text_headphoneCalibrate2);
     
-    for (const thisComponent of headphone_calibrateComponents)
+    headphone_calibrateComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -1923,11 +1931,11 @@ function headphone_calibrateRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of headphone_calibrateComponents)
+    headphone_calibrateComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine) {
@@ -1942,11 +1950,11 @@ function headphone_calibrateRoutineEachFrame() {
 function headphone_calibrateRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'headphone_calibrate' ---
-    for (const thisComponent of headphone_calibrateComponents) {
+    headphone_calibrateComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     psychoJS.experiment.addData('headphone_calibrate.stopped', globalClock.getTime());
     clickTrigger = 0;
     playTrigger = 0;
@@ -2025,9 +2033,10 @@ function headphone_exampleRoutineBegin(snapshot) {
     headphone_exampleComponents.push(button_headphoneExampleCont);
     headphone_exampleComponents.push(text_headphoneExample2);
     
-    for (const thisComponent of headphone_exampleComponents)
+    headphone_exampleComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -2256,11 +2265,11 @@ function headphone_exampleRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of headphone_exampleComponents)
+    headphone_exampleComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine) {
@@ -2275,11 +2284,11 @@ function headphone_exampleRoutineEachFrame() {
 function headphone_exampleRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'headphone_example' ---
-    for (const thisComponent of headphone_exampleComponents) {
+    headphone_exampleComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     psychoJS.experiment.addData('headphone_example.stopped', globalClock.getTime());
     sound_headphoneExample.stop();  // ensure sound has stopped at end of Routine
     psychoJS.experiment.addData('button_headphoneExamplePlay.numClicks', button_headphoneExamplePlay.numClicks);
@@ -2330,8 +2339,9 @@ function trials_hugginsLoopBegin(trials_hugginsLoopScheduler, snapshot) {
     currentLoop = trials_huggins;  // we're now the current loop
     
     // Schedule all the trials in the trialList:
-    for (const thisTrials_huggin of trials_huggins) {
+    trials_huggins.forEach(function() {
       snapshot = trials_huggins.getSnapshot();
+    
       trials_hugginsLoopScheduler.add(importConditions(snapshot));
       trials_hugginsLoopScheduler.add(headphone_checkRoutineBegin(snapshot));
       trials_hugginsLoopScheduler.add(headphone_checkRoutineEachFrame());
@@ -2346,7 +2356,7 @@ function trials_hugginsLoopBegin(trials_hugginsLoopScheduler, snapshot) {
       trials_hugginsLoopScheduler.add(headphone_pass_checkRoutineEachFrame());
       trials_hugginsLoopScheduler.add(headphone_pass_checkRoutineEnd(snapshot));
       trials_hugginsLoopScheduler.add(trials_hugginsLoopEndIteration(trials_hugginsLoopScheduler, snapshot));
-    }
+    });
     
     return Scheduler.Event.NEXT;
   }
@@ -2402,8 +2412,9 @@ function trials_expAudioLoopBegin(trials_expAudioLoopScheduler, snapshot) {
     currentLoop = trials_expAudio;  // we're now the current loop
     
     // Schedule all the trials in the trialList:
-    for (const thisTrials_expAudio of trials_expAudio) {
+    trials_expAudio.forEach(function() {
       snapshot = trials_expAudio.getSnapshot();
+    
       trials_expAudioLoopScheduler.add(importConditions(snapshot));
       trials_expAudioLoopScheduler.add(next_melodyRoutineBegin(snapshot));
       trials_expAudioLoopScheduler.add(next_melodyRoutineEachFrame());
@@ -2427,7 +2438,7 @@ function trials_expAudioLoopBegin(trials_expAudioLoopScheduler, snapshot) {
       trials_expAudioLoopScheduler.add(attention_pass_checkRoutineEachFrame());
       trials_expAudioLoopScheduler.add(attention_pass_checkRoutineEnd(snapshot));
       trials_expAudioLoopScheduler.add(trials_expAudioLoopEndIteration(trials_expAudioLoopScheduler, snapshot));
-    }
+    });
     
     return Scheduler.Event.NEXT;
   }
@@ -2483,8 +2494,9 @@ function trials_testAudioLoopBegin(trials_testAudioLoopScheduler, snapshot) {
     currentLoop = trials_testAudio;  // we're now the current loop
     
     // Schedule all the trials in the trialList:
-    for (const thisTrials_testAudio of trials_testAudio) {
+    trials_testAudio.forEach(function() {
       snapshot = trials_testAudio.getSnapshot();
+    
       trials_testAudioLoopScheduler.add(importConditions(snapshot));
       trials_testAudioLoopScheduler.add(next_melodyRoutineBegin(snapshot));
       trials_testAudioLoopScheduler.add(next_melodyRoutineEachFrame());
@@ -2514,7 +2526,7 @@ function trials_testAudioLoopBegin(trials_testAudioLoopScheduler, snapshot) {
       trials_testAudioLoopScheduler.add(attention_pass_checkRoutineEachFrame());
       trials_testAudioLoopScheduler.add(attention_pass_checkRoutineEnd(snapshot));
       trials_testAudioLoopScheduler.add(trials_testAudioLoopEndIteration(trials_testAudioLoopScheduler, snapshot));
-    }
+    });
     
     return Scheduler.Event.NEXT;
   }
@@ -2579,10 +2591,12 @@ function headphone_checkRoutineBegin(snapshot) {
     headphone_checkComponents = [];
     headphone_checkComponents.push(sound_huggins);
     headphone_checkComponents.push(text_headphoneCheck);
+    headphone_checkComponents.push(text_clock);
     
-    for (const thisComponent of headphone_checkComponents)
+    headphone_checkComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -2595,7 +2609,12 @@ function headphone_checkRoutineEachFrame() {
     t = headphone_checkClock.getTime();
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
-    if (t >= 0.1 && sound_huggins.status === PsychoJS.Status.NOT_STARTED) {
+    //if (t >= 0.1 && sound_huggins.status === PsychoJS.Status.NOT_STARTED) {
+    //    sound_huggins.play();
+    //    startTime = t;
+    //}
+    
+    if (t >= 3 && sound_huggins.status === PsychoJS.Status.NOT_STARTED) {
         sound_huggins.play();
         startTime = t;
     }
@@ -2627,6 +2646,25 @@ function headphone_checkRoutineEachFrame() {
       text_headphoneCheck.setAutoDraw(true);
     }
     
+    
+    if (text_clock.status === PsychoJS.Status.STARTED){ // only update if being drawn
+      text_clock.setText((("The audio will play in " + Math.max(0, Math.round((3 - t)))) + " seconds"), false);
+    }
+    
+    // *text_clock* updates
+    if (t >= 0.0 && text_clock.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      text_clock.tStart = t;  // (not accounting for frame time here)
+      text_clock.frameNStart = frameN;  // exact frame index
+      
+      text_clock.setAutoDraw(true);
+    }
+    
+    frameRemains = 0.0 + 3.0 - psychoJS.window.monitorFramePeriod * 0.75;  // most of one frame period left
+    if (text_clock.status === PsychoJS.Status.STARTED && t >= frameRemains) {
+      text_clock.setAutoDraw(false);
+    }
+    
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
       return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
@@ -2638,11 +2676,11 @@ function headphone_checkRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of headphone_checkComponents)
+    headphone_checkComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine) {
@@ -2658,11 +2696,11 @@ var audioFilePath;
 function headphone_checkRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'headphone_check' ---
-    for (const thisComponent of headphone_checkComponents) {
+    headphone_checkComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     psychoJS.experiment.addData('headphone_check.stopped', globalClock.getTime());
     psychoJS.experiment.addData('hugginsFileName', audioFilePath);
     
@@ -2723,9 +2761,10 @@ function headphone_choiceRoutineBegin(snapshot) {
     headphone_choiceComponents.push(mouse_hugginsChoice);
     headphone_choiceComponents.push(text_hugginsChoice);
     
-    for (const thisComponent of headphone_choiceComponents)
+    headphone_choiceComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -2935,11 +2974,11 @@ function headphone_choiceRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of headphone_choiceComponents)
+    headphone_choiceComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine) {
@@ -2954,11 +2993,11 @@ function headphone_choiceRoutineEachFrame() {
 function headphone_choiceRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'headphone_choice' ---
-    for (const thisComponent of headphone_choiceComponents) {
+    headphone_choiceComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     psychoJS.experiment.addData('headphone_choice.stopped', globalClock.getTime());
     psychoJS.experiment.addData('button_huggins_1.numClicks', button_huggins_1.numClicks);
     psychoJS.experiment.addData('button_huggins_1.timesOn', button_huggins_1.timesOn);
@@ -3014,9 +3053,10 @@ function headphone_choice_resetRoutineBegin(snapshot) {
     // keep track of which components have finished
     headphone_choice_resetComponents = [];
     
-    for (const thisComponent of headphone_choice_resetComponents)
+    headphone_choice_resetComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -3040,11 +3080,11 @@ function headphone_choice_resetRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of headphone_choice_resetComponents)
+    headphone_choice_resetComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine) {
@@ -3059,11 +3099,11 @@ function headphone_choice_resetRoutineEachFrame() {
 function headphone_choice_resetRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'headphone_choice_reset' ---
-    for (const thisComponent of headphone_choice_resetComponents) {
+    headphone_choice_resetComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     psychoJS.experiment.addData('headphone_choice_reset.stopped', globalClock.getTime());
     // the Routine "headphone_choice_reset" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
@@ -3100,9 +3140,10 @@ function headphone_pass_checkRoutineBegin(snapshot) {
     headphone_pass_checkComponents.push(text_compFail);
     headphone_pass_checkComponents.push(button_compFail);
     
-    for (const thisComponent of headphone_pass_checkComponents)
+    headphone_pass_checkComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -3173,11 +3214,11 @@ function headphone_pass_checkRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of headphone_pass_checkComponents)
+    headphone_pass_checkComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine) {
@@ -3192,11 +3233,11 @@ function headphone_pass_checkRoutineEachFrame() {
 function headphone_pass_checkRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'headphone_pass_check' ---
-    for (const thisComponent of headphone_pass_checkComponents) {
+    headphone_pass_checkComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     psychoJS.experiment.addData('headphone_pass_check.stopped', globalClock.getTime());
     psychoJS.experiment.addData('button_compFail.numClicks', button_compFail.numClicks);
     psychoJS.experiment.addData('button_compFail.timesOn', button_compFail.timesOn);
@@ -3245,9 +3286,10 @@ function volume_adjust_textRoutineBegin(snapshot) {
     volume_adjust_textComponents.push(button_nextPageVolAdjustText);
     volume_adjust_textComponents.push(mouse_nextPageVolAdjustText);
     
-    for (const thisComponent of volume_adjust_textComponents)
+    volume_adjust_textComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -3373,11 +3415,11 @@ function volume_adjust_textRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of volume_adjust_textComponents)
+    volume_adjust_textComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine) {
@@ -3392,11 +3434,11 @@ function volume_adjust_textRoutineEachFrame() {
 function volume_adjust_textRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'volume_adjust_text' ---
-    for (const thisComponent of volume_adjust_textComponents) {
+    volume_adjust_textComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     psychoJS.experiment.addData('volume_adjust_text.stopped', globalClock.getTime());
     psychoJS.experiment.addData('button_nextPageVolAdjustText.numClicks', button_nextPageVolAdjustText.numClicks);
     psychoJS.experiment.addData('button_nextPageVolAdjustText.timesOn', button_nextPageVolAdjustText.timesOn);
@@ -3476,9 +3518,10 @@ function volume_adjustRoutineBegin(snapshot) {
     volume_adjustComponents.push(text_volAdjustShort);
     volume_adjustComponents.push(text_volAdjustShort2);
     
-    for (const thisComponent of volume_adjustComponents)
+    volume_adjustComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -3754,11 +3797,11 @@ function volume_adjustRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of volume_adjustComponents)
+    volume_adjustComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine) {
@@ -3773,11 +3816,11 @@ function volume_adjustRoutineEachFrame() {
 function volume_adjustRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'volume_adjust' ---
-    for (const thisComponent of volume_adjustComponents) {
+    volume_adjustComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     psychoJS.experiment.addData('volume_adjust.stopped', globalClock.getTime());
     // store data for psychoJS.experiment (ExperimentHandler)
     psychoJS.experiment.addData('mouse_nextPageVolAdjust.x', mouse_nextPageVolAdjust.x);
@@ -3842,9 +3885,10 @@ function welcome_screenRoutineBegin(snapshot) {
     welcome_screenComponents.push(button_nextPageWelcome);
     welcome_screenComponents.push(mouse_nextPageWelcome);
     
-    for (const thisComponent of welcome_screenComponents)
+    welcome_screenComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -3967,11 +4011,11 @@ function welcome_screenRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of welcome_screenComponents)
+    welcome_screenComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine) {
@@ -3986,11 +4030,11 @@ function welcome_screenRoutineEachFrame() {
 function welcome_screenRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'welcome_screen' ---
-    for (const thisComponent of welcome_screenComponents) {
+    welcome_screenComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     psychoJS.experiment.addData('welcome_screen.stopped', globalClock.getTime());
     psychoJS.experiment.addData('button_nextPageWelcome.numClicks', button_nextPageWelcome.numClicks);
     psychoJS.experiment.addData('button_nextPageWelcome.timesOn', button_nextPageWelcome.timesOn);
@@ -4047,9 +4091,10 @@ function pre_expRoutineBegin(snapshot) {
     pre_expComponents.push(button_nextPageExp);
     pre_expComponents.push(mouse_nextPageExp);
     
-    for (const thisComponent of pre_expComponents)
+    pre_expComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -4174,11 +4219,11 @@ function pre_expRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of pre_expComponents)
+    pre_expComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine) {
@@ -4193,11 +4238,11 @@ function pre_expRoutineEachFrame() {
 function pre_expRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'pre_exp' ---
-    for (const thisComponent of pre_expComponents) {
+    pre_expComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     psychoJS.experiment.addData('pre_exp.stopped', globalClock.getTime());
     psychoJS.experiment.addData('button_nextPageExp.numClicks', button_nextPageExp.numClicks);
     psychoJS.experiment.addData('button_nextPageExp.timesOn', button_nextPageExp.timesOn);
@@ -4252,9 +4297,10 @@ function next_melodyRoutineBegin(snapshot) {
     next_melodyComponents.push(text_nextMelody);
     next_melodyComponents.push(mouse_nextMelody);
     
-    for (const thisComponent of next_melodyComponents)
+    next_melodyComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -4376,11 +4422,11 @@ function next_melodyRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of next_melodyComponents)
+    next_melodyComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine) {
@@ -4395,11 +4441,11 @@ function next_melodyRoutineEachFrame() {
 function next_melodyRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'next_melody' ---
-    for (const thisComponent of next_melodyComponents) {
+    next_melodyComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     psychoJS.experiment.addData('next_melody.stopped', globalClock.getTime());
     psychoJS.experiment.addData('button_nextMelody.numClicks', button_nextMelody.numClicks);
     psychoJS.experiment.addData('button_nextMelody.timesOn', button_nextMelody.timesOn);
@@ -4442,9 +4488,10 @@ function play_audioRoutineBegin(snapshot) {
     play_audioComponents = [];
     play_audioComponents.push(sound_playback);
     
-    for (const thisComponent of play_audioComponents)
+    play_audioComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -4481,11 +4528,11 @@ function play_audioRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of play_audioComponents)
+    play_audioComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine) {
@@ -4500,11 +4547,11 @@ function play_audioRoutineEachFrame() {
 function play_audioRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'play_audio' ---
-    for (const thisComponent of play_audioComponents) {
+    play_audioComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     psychoJS.experiment.addData('play_audio.stopped', globalClock.getTime());
     sound_playback.stop();  // ensure sound has stopped at end of Routine
     // the Routine "play_audio" was not non-slip safe, so reset the non-slip timer
@@ -4545,9 +4592,10 @@ function exp_clicks_file_loadingRoutineBegin(snapshot) {
     // keep track of which components have finished
     exp_clicks_file_loadingComponents = [];
     
-    for (const thisComponent of exp_clicks_file_loadingComponents)
+    exp_clicks_file_loadingComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -4571,11 +4619,11 @@ function exp_clicks_file_loadingRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of exp_clicks_file_loadingComponents)
+    exp_clicks_file_loadingComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine) {
@@ -4590,11 +4638,11 @@ function exp_clicks_file_loadingRoutineEachFrame() {
 function exp_clicks_file_loadingRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'exp_clicks_file_loading' ---
-    for (const thisComponent of exp_clicks_file_loadingComponents) {
+    exp_clicks_file_loadingComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     psychoJS.experiment.addData('exp_clicks_file_loading.stopped', globalClock.getTime());
     // the Routine "exp_clicks_file_loading" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
@@ -4641,9 +4689,10 @@ function exp_attention_playbackRoutineBegin(snapshot) {
     exp_attention_playbackComponents = [];
     exp_attention_playbackComponents.push(text_expAttentionPrompt);
     
-    for (const thisComponent of exp_attention_playbackComponents)
+    exp_attention_playbackComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -4686,11 +4735,11 @@ function exp_attention_playbackRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of exp_attention_playbackComponents)
+    exp_attention_playbackComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine && routineTimer.getTime() > 0) {
@@ -4705,11 +4754,11 @@ function exp_attention_playbackRoutineEachFrame() {
 function exp_attention_playbackRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'exp_attention_playback' ---
-    for (const thisComponent of exp_attention_playbackComponents) {
+    exp_attention_playbackComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     psychoJS.experiment.addData('exp_attention_playback.stopped', globalClock.getTime());
     // Routines running outside a loop should always advance the datafile row
     if (currentLoop === psychoJS.experiment) {
@@ -4772,9 +4821,10 @@ function exp_attention_choiceRoutineBegin(snapshot) {
     exp_attention_choiceComponents.push(text_expBeepNumber);
     exp_attention_choiceComponents.push(mouse_expAttentionChoice);
     
-    for (const thisComponent of exp_attention_choiceComponents)
+    exp_attention_choiceComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -5056,11 +5106,11 @@ function exp_attention_choiceRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of exp_attention_choiceComponents)
+    exp_attention_choiceComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine) {
@@ -5075,11 +5125,11 @@ function exp_attention_choiceRoutineEachFrame() {
 function exp_attention_choiceRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'exp_attention_choice' ---
-    for (const thisComponent of exp_attention_choiceComponents) {
+    exp_attention_choiceComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     psychoJS.experiment.addData('exp_attention_choice.stopped', globalClock.getTime());
     psychoJS.experiment.addData('button_expAttention1.numClicks', button_expAttention1.numClicks);
     psychoJS.experiment.addData('button_expAttention1.timesOn', button_expAttention1.timesOn);
@@ -5144,9 +5194,10 @@ function exp_attention_resetRoutineBegin(snapshot) {
     // keep track of which components have finished
     exp_attention_resetComponents = [];
     
-    for (const thisComponent of exp_attention_resetComponents)
+    exp_attention_resetComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -5170,11 +5221,11 @@ function exp_attention_resetRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of exp_attention_resetComponents)
+    exp_attention_resetComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine) {
@@ -5189,11 +5240,11 @@ function exp_attention_resetRoutineEachFrame() {
 function exp_attention_resetRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'exp_attention_reset' ---
-    for (const thisComponent of exp_attention_resetComponents) {
+    exp_attention_resetComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     psychoJS.experiment.addData('exp_attention_reset.stopped', globalClock.getTime());
     /*if (failed_attention_trials === 2) {
         window.location.href = "https://app.prolific.com/submissions/complete?cc=C1LH7GW7";
@@ -5233,9 +5284,10 @@ function attention_pass_checkRoutineBegin(snapshot) {
     attention_pass_checkComponents.push(text_attentionFail);
     attention_pass_checkComponents.push(button_attentionFail);
     
-    for (const thisComponent of attention_pass_checkComponents)
+    attention_pass_checkComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -5306,11 +5358,11 @@ function attention_pass_checkRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of attention_pass_checkComponents)
+    attention_pass_checkComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine) {
@@ -5325,11 +5377,11 @@ function attention_pass_checkRoutineEachFrame() {
 function attention_pass_checkRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'attention_pass_check' ---
-    for (const thisComponent of attention_pass_checkComponents) {
+    attention_pass_checkComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     psychoJS.experiment.addData('attention_pass_check.stopped', globalClock.getTime());
     psychoJS.experiment.addData('button_attentionFail.numClicks', button_attentionFail.numClicks);
     psychoJS.experiment.addData('button_attentionFail.timesOn', button_attentionFail.timesOn);
@@ -5378,9 +5430,10 @@ function pre_testRoutineBegin(snapshot) {
     pre_testComponents.push(button_nextPageTest);
     pre_testComponents.push(mouse_nextPageTest);
     
-    for (const thisComponent of pre_testComponents)
+    pre_testComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -5505,11 +5558,11 @@ function pre_testRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of pre_testComponents)
+    pre_testComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine) {
@@ -5524,11 +5577,11 @@ function pre_testRoutineEachFrame() {
 function pre_testRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'pre_test' ---
-    for (const thisComponent of pre_testComponents) {
+    pre_testComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     psychoJS.experiment.addData('pre_test.stopped', globalClock.getTime());
     psychoJS.experiment.addData('button_nextPageTest.numClicks', button_nextPageTest.numClicks);
     psychoJS.experiment.addData('button_nextPageTest.timesOn', button_nextPageTest.timesOn);
@@ -5587,9 +5640,10 @@ function test_choiceRoutineBegin(snapshot) {
     test_choiceComponents.push(text_testChoice);
     test_choiceComponents.push(mouse_testChoice);
     
-    for (const thisComponent of test_choiceComponents)
+    test_choiceComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -5763,11 +5817,11 @@ function test_choiceRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of test_choiceComponents)
+    test_choiceComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine) {
@@ -5782,11 +5836,11 @@ function test_choiceRoutineEachFrame() {
 function test_choiceRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'test_choice' ---
-    for (const thisComponent of test_choiceComponents) {
+    test_choiceComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     psychoJS.experiment.addData('test_choice.stopped', globalClock.getTime());
     psychoJS.experiment.addData('button_familiar.numClicks', button_familiar.numClicks);
     psychoJS.experiment.addData('button_familiar.timesOn', button_familiar.timesOn);
@@ -5832,9 +5886,10 @@ function choice_resetRoutineBegin(snapshot) {
     // keep track of which components have finished
     choice_resetComponents = [];
     
-    for (const thisComponent of choice_resetComponents)
+    choice_resetComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -5858,11 +5913,11 @@ function choice_resetRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of choice_resetComponents)
+    choice_resetComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine) {
@@ -5877,11 +5932,11 @@ function choice_resetRoutineEachFrame() {
 function choice_resetRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'choice_reset' ---
-    for (const thisComponent of choice_resetComponents) {
+    choice_resetComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     psychoJS.experiment.addData('choice_reset.stopped', globalClock.getTime());
     // the Routine "choice_reset" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
@@ -5920,9 +5975,10 @@ function test_clicks_file_loadingRoutineBegin(snapshot) {
     // keep track of which components have finished
     test_clicks_file_loadingComponents = [];
     
-    for (const thisComponent of test_clicks_file_loadingComponents)
+    test_clicks_file_loadingComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -5946,11 +6002,11 @@ function test_clicks_file_loadingRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of test_clicks_file_loadingComponents)
+    test_clicks_file_loadingComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine) {
@@ -5965,11 +6021,11 @@ function test_clicks_file_loadingRoutineEachFrame() {
 function test_clicks_file_loadingRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'test_clicks_file_loading' ---
-    for (const thisComponent of test_clicks_file_loadingComponents) {
+    test_clicks_file_loadingComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     // the Routine "test_clicks_file_loading" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
@@ -6014,9 +6070,10 @@ function test_attention_playbackRoutineBegin(snapshot) {
     test_attention_playbackComponents = [];
     test_attention_playbackComponents.push(text_testAttentionPlayback);
     
-    for (const thisComponent of test_attention_playbackComponents)
+    test_attention_playbackComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -6073,11 +6130,11 @@ function test_attention_playbackRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of test_attention_playbackComponents)
+    test_attention_playbackComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine && routineTimer.getTime() > 0) {
@@ -6092,11 +6149,11 @@ function test_attention_playbackRoutineEachFrame() {
 function test_attention_playbackRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'test_attention_playback' ---
-    for (const thisComponent of test_attention_playbackComponents) {
+    test_attention_playbackComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     psychoJS.experiment.addData('test_attention_playback.stopped', globalClock.getTime());
     // Routines running outside a loop should always advance the datafile row
     if (currentLoop === psychoJS.experiment) {
@@ -6159,9 +6216,10 @@ function test_attention_choiceRoutineBegin(snapshot) {
     test_attention_choiceComponents.push(text_beepNumber);
     test_attention_choiceComponents.push(mouse_attentionChoice);
     
-    for (const thisComponent of test_attention_choiceComponents)
+    test_attention_choiceComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -6443,11 +6501,11 @@ function test_attention_choiceRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of test_attention_choiceComponents)
+    test_attention_choiceComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine) {
@@ -6462,11 +6520,11 @@ function test_attention_choiceRoutineEachFrame() {
 function test_attention_choiceRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'test_attention_choice' ---
-    for (const thisComponent of test_attention_choiceComponents) {
+    test_attention_choiceComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     psychoJS.experiment.addData('test_attention_choice.stopped', globalClock.getTime());
     psychoJS.experiment.addData('button_attention_1.numClicks', button_attention_1.numClicks);
     psychoJS.experiment.addData('button_attention_1.timesOn', button_attention_1.timesOn);
@@ -6531,9 +6589,10 @@ function test_attention_resetRoutineBegin(snapshot) {
     // keep track of which components have finished
     test_attention_resetComponents = [];
     
-    for (const thisComponent of test_attention_resetComponents)
+    test_attention_resetComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -6557,11 +6616,11 @@ function test_attention_resetRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of test_attention_resetComponents)
+    test_attention_resetComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine) {
@@ -6576,11 +6635,11 @@ function test_attention_resetRoutineEachFrame() {
 function test_attention_resetRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'test_attention_reset' ---
-    for (const thisComponent of test_attention_resetComponents) {
+    test_attention_resetComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     psychoJS.experiment.addData('test_attention_reset.stopped', globalClock.getTime());
     // the Routine "test_attention_reset" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
@@ -6700,9 +6759,10 @@ function end_screenRoutineBegin(snapshot) {
     end_screenComponents = [];
     end_screenComponents.push(text_endMessage);
     
-    for (const thisComponent of end_screenComponents)
+    end_screenComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -6741,11 +6801,11 @@ function end_screenRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of end_screenComponents)
+    end_screenComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine && routineTimer.getTime() > 0) {
@@ -6760,11 +6820,11 @@ function end_screenRoutineEachFrame() {
 function end_screenRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'end_screen' ---
-    for (const thisComponent of end_screenComponents) {
+    end_screenComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     psychoJS.experiment.addData('end_screen.stopped', globalClock.getTime());
     // Routines running outside a loop should always advance the datafile row
     if (currentLoop === psychoJS.experiment) {
